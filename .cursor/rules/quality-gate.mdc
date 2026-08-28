@@ -1,0 +1,48 @@
+---
+description: Require passing typecheck, lint, and tests before finishing any coding task
+alwaysApply: true
+---
+
+# Quality Gate
+
+Do not stop the agent loop or mark a coding task complete until typechecking, linting, and tests all pass.
+
+## Required before finishing
+
+1. Run the full gate after making code changes.
+2. Fix every error you introduced.
+3. Re-run until all three pass.
+
+## Commands
+
+From the repo root:
+
+```bash
+bun run check
+```
+
+Or run individually:
+
+```bash
+bun run typecheck   # tsc --noEmit
+bun run lint        # oxlint
+bun run test        # bun test
+```
+
+## Workflow
+
+After editing source or test files:
+
+1. Run `ReadLints` on edited files for fast feedback.
+2. Run `bun run check`.
+3. Fix reported issues in the same turn when possible.
+4. Re-run until clean.
+5. Only then summarize the work as complete.
+
+## Rules
+
+- Never skip checks because a task "seems small".
+- Never leave newly introduced type, lint, or test failures for the user to fix.
+- Pre-existing failures in untouched files may be noted, but do not add new ones.
+- If a check cannot be run, say why and what still needs verification.
+- Question-only or review-only tasks with no code edits do not require checks.

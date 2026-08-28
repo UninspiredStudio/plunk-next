@@ -1,0 +1,54 @@
+{
+  "name": "@uninspired/plunk-next",
+  "version": "0.1.0",
+  "description": "TypeScript client for the Plunk Next API",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "plunk",
+    "email",
+    "api",
+    "client",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "bun run build",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "test": "bun test",
+    "check": "bun run typecheck && bun run lint && bun run test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "oxlint": "^1.80.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5"
+  }
+}
