@@ -2,6 +2,10 @@
   "name": "@uninspired/plunk-next",
   "version": "0.1.0",
   "description": "TypeScript client for the Plunk Next API",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UninspiredStudio/plunk-next.git"
+  },
   "type": "module",
   "license": "MIT",
   "sideEffects": false,
